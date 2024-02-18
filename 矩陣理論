@@ -1,0 +1,44 @@
+# 引入numpy和matplotlib.pyplot庫
+import numpy as np
+import matplotlib.pyplot as plt
+
+# 定義兩個範例矩陣A和B
+A = np.array([[1, 2], [3, 4]])
+B = np.array([[2, 0], [1, 3]])
+
+# 計算矩陣A和B的加法結果
+A_plus_B = A + B
+
+# 計算矩陣A的轉置
+A_transpose = A.T
+
+# 開始繪圖
+fig, axs = plt.subplots(1, 4, figsize=(20, 5))  # 創建一個1行4列的子圖，並設置總圖像大小
+
+# 繪製原始矩陣A
+axs[0].matshow(A, cmap='viridis')  # 使用熱圖顯示矩陣A
+axs[0].set_title('矩陣 A\n[[1, 2], [3, 4]]')  # 設置子圖標題
+for (i, j), val in np.ndenumerate(A):  # 在每個元素位置顯示其值
+    axs[0].text(j, i, f'{val}', ha='center', va='center', color='white')
+
+# 繪製原始矩陣B
+axs[1].matshow(B, cmap='viridis')  # 使用熱圖顯示矩陣B
+axs[1].set_title('矩陣 B\n[[2, 0], [1, 3]]')  # 設置子圖標題
+for (i, j), val in np.ndenumerate(B):  # 在每個元素位置顯示其值
+    axs[1].text(j, i, f'{val}', ha='center', va='center', color='white')
+
+# 繪製矩陣A和B的加法結果
+axs[2].matshow(A_plus_B, cmap='viridis')  # 使用熱圖顯示矩陣A+B的結果
+axs[2].set_title('A + B\n[[3, 2], [4, 7]]')  # 設置子圖標題
+for (i, j), val in np.ndenumerate(A_plus_B):  # 在每個元素位置顯示其值
+    axs[2].text(j, i, f'{val}', ha='center', va='center', color='white')
+
+# 繪製矩陣A的轉置
+axs[3].matshow(A_transpose, cmap='viridis')  # 使用熱圖顯示矩陣A的轉置
+axs[3].set_title('A的轉置\n[[1, 3], [2, 4]]')  # 設置子圖標題
+for (i, j), val in np.ndenumerate(A_transpose):  # 在每個元素位置顯示其值
+    axs[3].text(j, i, f'{val}', ha='center', va='center', color='white')
+
+# 調整布局
+plt.tight_layout()
+plt.show()  # 顯示圖像
