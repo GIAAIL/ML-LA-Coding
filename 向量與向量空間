@@ -1,0 +1,34 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Define vectors
+a = np.array([3, 4])
+b = np.array([2, -1])
+sum_ab = a + b
+scalar_a = 2 * a
+
+# Plot vectors
+plt.figure(figsize=(12, 8))
+
+# Plot vector a
+plt.quiver(0, 0, a[0], a[1], angles='xy', scale_units='xy', scale=1, color='r', label='a = [3, 4]')
+# Plot vector b
+plt.quiver(a[0], a[1], b[0], b[1], angles='xy', scale_units='xy', scale=1, color='b', label='b = [2, -1]')
+# Plot sum of vectors a + b
+plt.quiver(0, 0, sum_ab[0], sum_ab[1], angles='xy', scale_units='xy', scale=1, color='g', label='a + b = [5, 3]')
+# Plot scalar multiplication of vector a
+plt.quiver(0, 0, scalar_a[0], scalar_a[1], angles='xy', scale_units='xy', scale=1, color='y', label='2a = [6, 8]')
+
+# Add details
+plt.xlim(-2, 8)
+plt.ylim(-3, 9)
+plt.axhline(0, color='black',linewidth=0.5)
+plt.axvline(0, color='black',linewidth=0.5)
+plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+plt.legend()
+plt.title('Vector Operations: Addition and Scalar Multiplication')
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.show()
+
+# 
