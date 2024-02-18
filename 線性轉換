@@ -1,0 +1,45 @@
+# Re-importing necessary libraries after code execution state reset
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Define a function for plotting linear transformations
+def plot_linear_transformation(matrix):
+    """
+    Plot the effect of a linear transformation defined by a matrix on unit vectors.
+    Also plot the transformation of additional vectors if provided.
+    """
+    # Unit vectors
+    i_hat = np.array([1, 0])
+    j_hat = np.array([0, 1])
+    
+    # Transformed unit vectors
+    i_hat_transformed = matrix @ i_hat
+    j_hat_transformed = matrix @ j_hat
+    
+    # Plot original unit vectors
+    plt.quiver(0, 0, i_hat[0], i_hat[1], angles='xy', scale_units='xy', scale=1, color='red', label='Original î')
+    plt.quiver(0, 0, j_hat[0], j_hat[1], angles='xy', scale_units='xy', scale=1, color='green', label='Original ĵ')
+    
+    # Plot transformed unit vectors
+    plt.quiver(0, 0, i_hat_transformed[0], i_hat_transformed[1], angles='xy', scale_units='xy', scale=1, color='orange', label='Transformed î')
+    plt.quiver(0, 0, j_hat_transformed[0], j_hat_transformed[1], angles='xy', scale_units='xy', scale=1, color='blue', label='Transformed ĵ')
+
+    # Setting the plot limits
+    plt.xlim(-3, 3)
+    plt.ylim(-3, 3)
+    plt.axhline(0, color='black',linewidth=0.5)
+    plt.axvline(0, color='black',linewidth=0.5)
+    plt.grid(color = 'gray', linestyle = '--', linewidth = 0.5)
+    plt.legend()
+    plt.title('Linear Transformation')
+    plt.xlabel('X-axis')
+    plt.ylabel('Y-axis')
+    plt.gca().set_aspect('equal', adjustable='box')
+
+# Example: A linear transformation matrix
+transformation_matrix = np.array([[2, 1], [1, 2]])
+
+# Plotting the effect of the linear transformation
+plt.figure(figsize=(8, 8))
+plot_linear_transformation(transformation_matrix)
+plt.show()
