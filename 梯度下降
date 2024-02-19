@@ -1,0 +1,47 @@
+# Let's illustrate the concept of gradient descent through a simple example
+# We will use a quadratic function f(x) = x^2 and show how gradient descent can find its minimum
+
+# Define the function and its derivative (gradient)
+def f(x):
+    return x ** 2
+
+def df(x):
+    return 2 * x
+
+# Starting point
+x_start = 2.5
+
+# Learning rate
+lr = 0.1
+
+# Number of iterations
+iterations = 15
+
+# Gradient descent
+x = x_start
+x_history = [x]
+y_history = [f(x)]
+
+for _ in range(iterations):
+    grad = df(x)  # Calculate gradient
+    x = x - lr * grad  # Update x
+    x_history.append(x)
+    y_history.append(f(x))
+
+# Plotting
+x_values = np.linspace(-3, 3, 400)
+y_values = f(x_values)
+
+plt.figure(figsize=(10, 6))
+plt.plot(x_values, y_values, '-r', label='f(x) = x^2')
+plt.scatter(x_history, y_history, color='blue', marker='o')
+for i, (x, y) in enumerate(zip(x_history, y_history)):
+    plt.annotate(f'{i}', (x, y), textcoords="offset points", xytext=(0,10), ha='center')
+
+plt.title('Gradient Descent Optimization')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.legend()
+plt.grid(True)
+plt.show()
+
