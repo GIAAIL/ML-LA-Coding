@@ -1,0 +1,55 @@
+# Define a more complex dataset with additional features
+# Assuming features are: Area (sqm), Bedrooms, Bathrooms, and Age of House (Years)
+houses_complex = np.array([
+    [60, 2, 1, 5],  # House 1
+    [80, 3, 2, 3],  # House 2
+    [120, 4, 3, 10],  # House 3
+    [30, 1, 1, 15],  # House 4
+    [150, 4, 2, 2],  # House 5
+    [100, 3, 2, 7],  # House 6
+    [90, 2, 1, 20]   # House 7
+])
+
+# Extract features
+areas = houses_complex[:, 0]  # Area
+bedrooms = houses_complex[:, 1]  # Bedrooms
+bathrooms = houses_complex[:, 2]  # Bathrooms
+age = houses_complex[:, 3]  # Age
+
+# Plotting
+plt.figure(figsize=(10, 7))
+
+# Scatter plot for Area vs Bedrooms
+plt.subplot(2, 2, 1)
+plt.scatter(areas, bedrooms, color='blue', label='Area vs Bedrooms')
+plt.xlabel('Area (sqm)')
+plt.ylabel('Bedrooms')
+plt.grid(True)
+plt.legend()
+
+# Scatter plot for Area vs Bathrooms
+plt.subplot(2, 2, 2)
+plt.scatter(areas, bathrooms, color='green', label='Area vs Bathrooms')
+plt.xlabel('Area (sqm)')
+plt.ylabel('Bathrooms')
+plt.grid(True)
+plt.legend()
+
+# Scatter plot for Bedrooms vs Bathrooms
+plt.subplot(2, 2, 3)
+plt.scatter(bedrooms, bathrooms, color='red', label='Bedrooms vs Bathrooms')
+plt.xlabel('Bedrooms')
+plt.ylabel('Bathrooms')
+plt.grid(True)
+plt.legend()
+
+# Scatter plot for Area vs Age
+plt.subplot(2, 2, 4)
+plt.scatter(areas, age, color='purple', label='Area vs Age')
+plt.xlabel('Area (sqm)')
+plt.ylabel('Age (Years)')
+plt.grid(True)
+plt.legend()
+
+plt.tight_layout()
+plt.show()
