@@ -1,0 +1,41 @@
+# Import necessary libraries
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+
+# Define basis vectors in 3D
+i = np.array([1, 0, 0])  # x-axis
+j = np.array([0, 1, 0])  # y-axis
+k = np.array([0, 0, 1])  # z-axis
+
+# Define a vector v in 3D space as a linear combination of the basis vectors
+v = 2*i + 3*j + 4*k  # Example vector
+
+# Create a 3D plot
+fig = plt.figure(figsize=(10, 8))
+ax = fig.add_subplot(111, projection='3d')
+
+# Plot the basis vectors
+ax.quiver(0, 0, 0, i[0], i[1], i[2], color='r', label='i [1, 0, 0]')
+ax.quiver(0, 0, 0, j[0], j[1], j[2], color='g', label='j [0, 1, 0]')
+ax.quiver(0, 0, 0, k[0], k[1], k[2], color='b', label='k [0, 0, 1]')
+
+# Plot the vector v
+ax.quiver(0, 0, 0, v[0], v[1], v[2], color='black', label='v = 2i + 3j + 4k')
+
+# Setting the plot limits to make all vectors visible
+ax.set_xlim([0, 5])
+ax.set_ylim([0, 5])
+ax.set_zlim([0, 5])
+
+# Setting the labels
+ax.set_xlabel('X-axis')
+ax.set_ylabel('Y-axis')
+ax.set_zlabel('Z-axis')
+ax.set_title('3D Vector Space Example')
+
+# Adding a legend
+ax.legend()
+
+plt.show()
+
